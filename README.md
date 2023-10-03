@@ -13,9 +13,9 @@ Use ASSERT(func, args, expected) if you want to test your function and ASSERT_EQ
 ```C++
 void test_all() {
 	TESTS_INIT;
-  ...
+	...
 	ASSERT(sqr, (2), 4);
-  ASSERT_EQUAL(2, 2);
+	ASSERT_EQUAL(2, 2);
 }
 ```
 
