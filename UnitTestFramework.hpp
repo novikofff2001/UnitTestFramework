@@ -12,27 +12,27 @@
 #define GET_LINE val(__LINE__)
 #define GET_FILE val(__FILE__)
 
-#define ASSERT(func, args, expected) {			\
-	try {										\
-		ASSERT_EQUAL( func args, (expected))    \
-	}											\
-	catch (std::runtime_error& re) {			\
-		_UTF_CLASS_OBJ_NAME._err_count++;		\
-	}											\
+#define ASSERT(func, args, expected) {          \
+    try {                                       \
+        ASSERT_EQUAL( func args, (expected))    \
+    }                                           \
+    catch (std::runtime_error& re) {            \
+        _UTF_CLASS_OBJ_NAME._err_count++;       \
+    }                                           \
 }
 
-#define ASSERT_EQUAL(lvalue, rvalue) {													\
-	auto _lvalue = lvalue;																\
-	auto _rvalue = rvalue;																\
-	if (_lvalue != _rvalue) {															\
-		std::stringstream ss;															\
-		ss << "Assertion error: " #lvalue " = " << _lvalue << ", expected " << _rvalue;	\
-		ss << ". " << "File: " << GET_FILE << ", Line: " << GET_LINE << std::endl;		\
-		std::cerr << ss.str();															\
-		throw std::runtime_error(ss.str());												\
-	}																					\
+#define ASSERT_EQUAL(lvalue, rvalue) {                              \
+    auto _lvalue = lvalue;                                          \
+    auto _rvalue = rvalue;                                          \
+    if (_lvalue != _rvalue) {                                       \
+        std::stringstream ss;                                       \
+        ss << "Assertion error: "  << lvalue;                       \
+        ss <<  << " = " << _lvalue << ", expected " << _rvalue;     \
+        ss << ". File: " << GET_FILE << ", Line: " << GET_LINE;     \
+        std::cerr << ss.str();                                      \
+        throw std::runtime_error(ss.str());                         \
+    }                                                               \
 }
-
 
 class UnitTestFramework
 {
