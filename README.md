@@ -25,14 +25,14 @@ To use the framework, you'll need to declare some macros within the scope you're
 
 Here's a quick example to get you started:
 
-\```C++
+```C++
 void test_all() {
   TESTS_INIT;
   // Your code for testing goes here
   ASSERT(sqr, (2), 4);
   ASSERT_EQUAL(2, 2);
 }
-\```
+```
 
 ## 🎯 What Happens Next?
 
